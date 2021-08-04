@@ -26,6 +26,11 @@ module.exports = (sequelize) => {
       primaryKey: true,
       type: DataTypes.UUID,
       allowNull: false
+    },
+    mine: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   })
 };
