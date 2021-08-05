@@ -6,7 +6,7 @@ const {MY_API_KEY} = process.env;
 
 const data = async () =>{
     const arr = await axios.get(`https://api.rawg.io/api/games?key=${MY_API_KEY}`)
-    //console.log(arr.data.results)
+    console.log(arr.data.results)
     return arr.data.results;
 }
 

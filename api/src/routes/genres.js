@@ -1,5 +1,5 @@
 const {Router} = require('express');
-
+const {Genre} = require('../db')
 const router = Router();
 
 router.get('/', (req, res) => {

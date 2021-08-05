@@ -3,7 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 
 //Me traigo mis tablas para poder trabajar sobre ellas:
-const {Videogame, Genre, videogames_genres} = require('../db.js')
+const {Videogame, Genre, VideogameGenre} = require('../db.js')
 
 //Me traigo OP de sequelize para poder usar sus operadores
 const {Op} = require('sequelize');
