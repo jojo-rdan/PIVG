@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const {
   dbUser, dbPassword, dbHost, dbPort, dbName
-} = require('./utils/config/index')
+} = require('./utils/config')
 
 const sequelize = new Sequelize(`postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`, {
   logging: false, // set to console.log to see the raw SQL queries
@@ -33,7 +33,6 @@ const { Videogame, Genre } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-
 //Un juego puede tener muchos géneros
 Videogame.belongsToMany(Genre, {through:'VideogameGenre'})
 

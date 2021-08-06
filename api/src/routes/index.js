@@ -14,11 +14,11 @@ const router = Router();
 const VideogamesRoutes = require('./videogames')
 const GenresRoutes = require('./genres')
 
-router.use('/videogames', VideogamesRoutes)
-router.use('/genres', GenresRoutes)
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+router.use('/videogames', VideogamesRoutes)
+router.use('/genres', GenresRoutes)
 
 
 module.exports = router;
