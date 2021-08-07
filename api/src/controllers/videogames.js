@@ -12,10 +12,11 @@ async function getAllVideogames(req, res, next) { //FALTA AGREGAR LOS OTROS LLAM
     const apiVideogames = arrData.results;
     //const callsData = allCalls.data.results;
     //const apiVideogames = callsData.results;
-    const dbVideogames = Videogame.findAll({ //Revisar esto!!! No está tomándolo a la hora de hacer .map
+    console.log('asasdsad')
+    const dbVideogames = await Videogame.findAll({
         include: Genre
     })
-    const totalGames = apiVideogames//.concat(dbVideogames)
+    const totalGames = [...apiVideogames, ...dbVideogames]
     const filteredGames = totalGames.map(v => {
         return {
         name: v.name,
