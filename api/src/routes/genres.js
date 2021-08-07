@@ -1,9 +1,7 @@
 const {Router} = require('express');
-const {Genre} = require('../db')
+const {getAllGenres} = require('../controllers/genre')
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.send('Soy la ruta de Genres!')
-})
+router.get('/', getAllGenres)
 
 module.exports = router;

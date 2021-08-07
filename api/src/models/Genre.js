@@ -4,12 +4,12 @@ module.exports = (sequelize) => {
     return sequelize.define('Genre', {
         id: {
           primaryKey: true,
-          type: DataTypes.UUID,
+          type: DataTypes.INTEGER,
           allowNull: false
         },
         name: {
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: false
         },
       });
 }

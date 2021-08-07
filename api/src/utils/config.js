@@ -5,7 +5,7 @@ module.exports = {
     dbPassword: process.env.DB_PASSWORD,
     dbHost: process.env.DB_HOST,
     dbPort: process.env.DB_PORT,
-    myApiKey: process.env.MY_APY_KEY,
+    myApiKey: process.env.MY_API_KEY,
     dbName: process.env.DB_NAME,
     port: process.env.PORT,
 }
