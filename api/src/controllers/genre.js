@@ -11,8 +11,10 @@ async function getAllGenres(req, res, next){
           const apiGenres = await axios.get(`https://api.rawg.io/api/genres?key=${myApiKey}`)
           const genresData = apiGenres.data.results;
           const genresMap = genresData.map(g => {
-              name: g.name
+              return {
+              name: g.name,
               id: g.id
+            }
           })
           //const final = Genre.findOrCreate(genresMap,{where:{name: genresData.name, id: genresData.id}})
           const final = Genre.bulkCreate(genresMap,{where:{name: genresData.name, id: genresData.id}})

@@ -7,16 +7,15 @@ async function getAllVideogames(req, res, next) { //FALTA AGREGAR LOS OTROS LLAM
     const arr = await axios.get(`https://api.rawg.io/api/games?key=${myApiKey}&page_size=40`)
     const arr2 = await axios.get(`https://api.rawg.io/api/games?key=${myApiKey}&page=2&page_size=40`)
     const arr3 = await axios.get(`https://api.rawg.io/api/games?key=${myApiKey}&page=3&page_size=40`)
-    //const allCalls = Promise.all([arr, arr2, arr3])
-    const arrData = arr.data;
-    const apiVideogames = arrData.results;
-    //const callsData = allCalls.data.results;
-    //const apiVideogames = callsData.results;
-    console.log('asasdsad')
+
+    const arrData = arr.data.results;
+    const arrData2 = arr2.data.results;
+    const arrData3 = arr3.data.results;
     const dbVideogames = await Videogame.findAll({
         include: Genre
     })
-    const totalGames = [...apiVideogames, ...dbVideogames]
+    console.log(dbVideogames)
+    const totalGames = arrData.concat(arrData2, arrData3, dbVideogames)
     const filteredGames = totalGames.map(v => {
         return {
         name: v.name,
