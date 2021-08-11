@@ -12,9 +12,15 @@ async function getAllVideogames(req, res, next) { //FALTA AGREGAR LOS OTROS LLAM
     const arrData2 = arr2.data.results;
     const arrData3 = arr3.data.results;
     const dbVideogames = await Videogame.findAll({
-        include: Genre
+        include: {
+            model: Genre,
+            attributes: ['name'],
+            through: {
+                attributes: [],
+            }
+        }
     })
-    console.log(dbVideogames)
+    //console.log(dbVideogames)
     const totalGames = arrData.concat(arrData2, arrData3, dbVideogames)
     const filteredGames = totalGames.map(v => {
         return {

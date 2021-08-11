@@ -8,6 +8,7 @@ function addVideogame(req, res, next) { //WORKING!!! FALTA QUE PUEDA AGREGAR GEN
     const videogame = req.body
     return Videogame.create({
         ...videogame,
+        include: Genre,
         id: uuidv4()
     })
     .then((videogames) => res.json(videogames))
