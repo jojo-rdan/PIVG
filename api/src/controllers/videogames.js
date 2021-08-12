@@ -54,5 +54,5 @@ const getAllVideogames = async (req, res) => {
 }
 
 module.exports = {
-    getAllVideogames
+    getAllVideogames,
 }

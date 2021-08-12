@@ -15,13 +15,13 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     background_image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    release: {
+    released: {
       type: DataTypes.STRING,
       allowNull: true
     },

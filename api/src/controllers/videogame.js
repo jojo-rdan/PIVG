@@ -32,6 +32,5 @@ async function addVideogame(req, res) {
 }
 
 module.exports = {
-    //getVideogameById,
     addVideogame
 }
