@@ -22,21 +22,16 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     released: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING,//DATEONLY
       allowNull: true
     },
     rating: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,//FLOAT
       allowNull: true
     },
     platforms: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    createInDb: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
     }
   })
 };

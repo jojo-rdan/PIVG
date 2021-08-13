@@ -8,7 +8,6 @@ async function addVideogame(req, res) {
         release,
         rating,
         platforms,
-        createInDb,
         genres
     } = req.body
 
@@ -19,7 +18,6 @@ async function addVideogame(req, res) {
         release,
         rating,
         platforms,
-        createInDb,
         genres
     })
 

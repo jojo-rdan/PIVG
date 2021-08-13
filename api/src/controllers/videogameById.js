@@ -7,7 +7,7 @@ const getVideogameById = async (req, res) => {
     if(req.params.id){
         const dbDetailGame = await Videogame.findByPk(req.params.id,
             {
-            attributes: { exclude: ['createdAt' , 'updatedAt', 'createInDb']},
+            attributes: { exclude: ['createdAt' , 'updatedAt']},
             include: {
                 model: Genre,
                 attributes: ['name'],
