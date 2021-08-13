@@ -7,14 +7,14 @@ const getVideogameById = async (req, res) => {
     if(req.params.id){
         const dbDetailGame = await Videogame.findByPk(req.params.id,
             {
-            attributes: { exclude: ['createdAt' , 'updatedAt']},
+            attributes: { exclude: ['createdAt' , 'updatedAt', 'createInDb']},
             include: {
                 model: Genre,
                 attributes: ['name'],
                 through: {attributes: []}
             },
         })
-        .catch(() => console.log('No está en la base de datos'))
+        .catch(() => console.log('Found it!'))
         if(dbDetailGame) return res.status(200).send(dbDetailGame)
 
 
@@ -38,16 +38,6 @@ const getVideogameById = async (req, res) => {
     .catch(() => res.status(404).send('No se encontró el juego.'))
     }
 }
-// async function getVideogameById (req, res) {
-//    const videogamesTotal = await allVideogamesById();
-//    if(req.params.id){
-//        let videogameId = await videogamesTotal.filter(i => i.id === id)
-//        videogameId.length ?
-//        res.status(200).json(videogameId) :
-//        res.status(404).send('No se encontró el videojuego.')
-//    }
-
-// }
 module.exports = {
     getVideogameById
 }

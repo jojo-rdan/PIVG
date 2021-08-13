@@ -12,7 +12,10 @@ async function getAllGenres(req, res){
         })
     });
     const allGenres = await Genre.findAll();
-    res.send(allGenres)
+    res.send(allGenres.map(g => { return {
+        id: g.id,
+        name: g.name
+    }}))
 }
 
 module.exports = {
