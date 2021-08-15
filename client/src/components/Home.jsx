@@ -42,6 +42,7 @@ export default function HomePage(){
                     <option value="desc">Descendente</option>
                 </select>
                 <select>
+                    <option value="todos">Todos</option>
                     <option value="">Existentes</option>
                     <option value="">Creados</option>
                 </select>

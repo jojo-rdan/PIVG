@@ -3,22 +3,22 @@ const {Videogame, Genre} = require('../db');
 async function addVideogame(req, res) { 
     let {
         name,
-        image,
+        background_image,
         description,
-        release,
+        genres,
+        released,
         rating,
-        platforms,
-        genres
+        platforms
     } = req.body
 
     let createdVideogame = await Videogame.create({
         name,
-        image,
+        background_image,
         description,
-        release,
+        genres,
+        released,
         rating,
-        platforms,
-        genres
+        platforms
     })
 
     let findGenres = await Promise.all(genres.map(g => {

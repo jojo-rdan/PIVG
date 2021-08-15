@@ -10,6 +10,12 @@ function rootReducer(state= initialState, action){
                 ...state,
                 videogames: action.payload
             }
+        case 'FILTER_BY_CREATED_OR_NOT':
+            const allVideogames = state.videogames;
+            const filteredVG = action.payload ===
+            return{
+
+            }
         default: {
             return state;
         }

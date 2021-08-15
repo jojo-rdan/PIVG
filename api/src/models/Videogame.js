@@ -10,6 +10,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true
     },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,11 +27,10 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     released: {
-      type: DataTypes.STRING,//DATEONLY
-      allowNull: true
+      type: DataTypes.DATEONLY
     },
     rating: {
-      type: DataTypes.INTEGER,//FLOAT
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     platforms: {

@@ -11,3 +11,10 @@ export function getVideogames(){
         })
     }
 }
+export function filterVideogameByCreatedOrNot(payload){
+    return{
+        type: 'FILTER_BY_CREATED_OR_NOT',
+        payload
+    }
+
+}
