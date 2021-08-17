@@ -11,9 +11,28 @@ export function getVideogames(){
         })
     }
 }
-export function filterVideogameByCreatedOrNot(payload){
+export function orderByName(payload){
     return{
-        type: 'FILTER_BY_CREATED_OR_NOT',
+        type: 'FILTER_BY_NAME',
+        payload
+    }
+}
+export function getVideogameName(name) {
+    return async function (dispatch){
+        try{
+            let json = axios.get(`http://localhost:3001/videogames?name=${name}`);
+            return dispatch({
+                type: 'GET_VIDEOGAME_NAME',
+                payload: json.data
+            })
+        } catch(error) {
+            console.log(error);
+        }
+    }
+}
+export function filterVideogameByCreated(payload){
+    return{
+        type: 'FILTER_BY_CREATED',
         payload
     }
 
