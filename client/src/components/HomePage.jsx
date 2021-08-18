@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 
 //Mis accciones
-import { getVideogames, filterVideogameByCreated, orderByName} from '../actions';
+import { getVideogames, filterVideogameByCreated, orderByName, orderByRating} from '../actions';
 
 //Componentes
 import Card from './Card';
@@ -21,7 +21,6 @@ export default function HomePage(){
     const lastGameIndex = currentPage * videogamesPerPage;
     const firstGameIndex = lastGameIndex - videogamesPerPage;
     const currentVideogames = allVideogames.slice(firstGameIndex, lastGameIndex);
-
     const paginado = (pageNumber) =>{
         setCurrentPage(pageNumber)
     }
@@ -45,6 +44,12 @@ export default function HomePage(){
         setCurrentPage(1)
         setOrder(`Ordenado ${e.target.value}`)
     }
+    function handleRating(e){
+        e.preventDefault()
+        dispatch(orderByRating(e.target.value))
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
+    }
 
     return (
         <div>
@@ -55,13 +60,17 @@ export default function HomePage(){
             </button>
             <div>
                 <select onChange={e => handleSort(e)}>
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
+                    <option value="asc">Ascendente A - Z</option>
+                    <option value="desc">Descendente Z - A</option>
+                </select>
+                <select onChange={e => handleRating(e)}>
+                    <option value="Rasc">Rating Alto</option>
+                    <option value="Rdesc">Rating Bajo</option>
                 </select>
                 <select onChange={e => handleFilteredGames(e)}>
                     <option value="all">Todos</option>
-                    <option value="api">De la Api</option>
-                    <option value="created">Creados</option>
+                    <option value="api">Existentes</option>
+                    <option value="created">Agregados por nosotros</option>
                 </select>
                 <SearchBar/>
                 <Pagination

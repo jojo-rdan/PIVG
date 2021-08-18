@@ -8,11 +8,11 @@ export default function SearchBar (){
     const [game, setGame] = useState("")
 
     const handleInputChange = (e)=>{
-        e.preventDefault()
+        e.preventDefault();
         setGame(e.target.value)
     }
     const handleSubmit = (e)=>{
-        e.preventDefault()
+        e.preventDefault();
         dispatch(getVideogameName(game))
     }
     return(

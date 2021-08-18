@@ -35,7 +35,8 @@ const allVideogames = async () => {
         return {
             name: el.name,
             image: el.background_image,
-            genres: el.genres.map(g => g.name)
+            genres: el.genres.map(g => g.name),
+            rating: el.rating
         }
     })
     return filteredInfoTotal;
