@@ -2,7 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
+
+//Mis accciones
 import { getVideogames, filterVideogameByCreated, orderByName} from '../actions';
+
+//Componentes
 import Card from './Card';
 import Pagination from './Pagination';
 import SearchBar from './SearchBar';
@@ -44,10 +48,10 @@ export default function HomePage(){
 
     return (
         <div>
-            <Link to='/videogame'>Create videogame</Link>
+            <Link to='/videogame'>Crear videojuego</Link>
             <h1>LvlUp!</h1>
             <button onClick={e => {handleClick(e)}}>
-                Volver a cargar todos los personajes
+                Volver a cargar todos los videojuegos
             </button>
             <div>
                 <select onChange={e => handleSort(e)}>
@@ -59,19 +63,19 @@ export default function HomePage(){
                     <option value="api">De la Api</option>
                     <option value="created">Creados</option>
                 </select>
+                <SearchBar/>
                 <Pagination
                 videogamesPerPage = {videogamesPerPage}
                 allVideogames = {allVideogames.length}
                 paginado = {paginado}
                 />
-                <SearchBar/>
                 {currentVideogames?.map((e) => {
                     return (
-                        <fragment>
-                            <Link to={"/home/" + e.id}>
-                                <Card name={e.name} image={e.image} genres={e.genres} key={e.id}/>
+                        <div>
+                            <Link to={"/home/"}>
+                                <Card name={e.name} image={e.image} genres={e.genres}/>
                             </Link>
-                        </fragment>
+                        </div>
                     )
                 })}
             </div>

@@ -7,13 +7,13 @@ const initialState = {
 function rootReducer(state= initialState, action){
     switch(action.type){
         case 'GET_VIDEOGAMES':
-            return {
+            return{
                 ...state,
                 videogames: action.payload,
                 allVideogames: action.payload
             }
         case 'FILTER_BY_CREATED':
-            const filteredVG = action.payload === "created" ? state.allVideogames.filter(el => el.createdInDb) : state.allVideogames.filter(el => !el.createdInDb)
+            let filteredVG = action.payload === "created" ? state.videogames.filter((el) => el.createdInDb) : state.videogames.filter((el) => !el.createdInDb)
             return{
                 ...state,
                 videogames: action.payload === "all" ? state.allVideogames : filteredVG
