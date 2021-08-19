@@ -24,7 +24,6 @@ async function addVideogame(req, res) {
     let findGenres = await Promise.all(genres.map(g => {
         return Genre.findByPk(g)
     }))
-
     createdVideogame.setGenres(findGenres)
     res.send('El videojuego ha sido agregado!')
 }

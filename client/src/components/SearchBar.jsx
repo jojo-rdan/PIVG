@@ -14,6 +14,7 @@ export default function SearchBar (){
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(getVideogameName(game))
+        setGame("")
     }
     return(
         <div>

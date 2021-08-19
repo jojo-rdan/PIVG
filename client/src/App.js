@@ -13,7 +13,7 @@ function App() {
         <Route exact path='/' component={LandingPage}/>
         <Route path='/home' component={HomePage}/>
         {/* <Route path='/home/:id' component={GameDetails}/> */}
-        {/* <Route path='/videogame' component={CreateVideogame/>} */}
+        <Route path='/videogame' component={CreateVideogame}/>
       </Switch>
     </div>
     </BrowserRouter>
