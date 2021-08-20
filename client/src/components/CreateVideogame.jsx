@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGenres, postVideogame  } from '../actions';
+import styles from '../styles/CreateVideogame.module.css'
 
 export default function PostVideogame(){
     const dispatch = useDispatch()
@@ -50,15 +51,16 @@ export default function PostVideogame(){
     }, []);
 
     return(
-        <div>
+        <div className={styles.form}>
             <Link to='/home'>
-                <button>Volver</button>
+                <button className={styles.submit}>Volver</button>
             </Link>
             <h1>Crea tu videojuego</h1>
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <div>
-                    <label>Nombre</label>
+                    <label>Nombre del juego</label>
                     <input
+                    className={styles.input}
                     type="text"
                     value={input.name}
                     name="name"
@@ -69,6 +71,7 @@ export default function PostVideogame(){
                 <div>
                     <label>Imagen</label>
                     <input
+                    className={styles.input}
                     type="text"
                     value={input.background_image}
                     name="background_image"
@@ -78,6 +81,7 @@ export default function PostVideogame(){
                 <div>
                     <label>Descripción</label>
                     <input
+                    className={styles.input}
                     type="text"
                     value={input.description}
                     name="description"
@@ -88,6 +92,7 @@ export default function PostVideogame(){
                 <div>
                     <label>Fecha de lanzamiento</label>
                     <input
+                    className={styles.input}
                     type="date"
                     value={input.released}
                     name="released"
@@ -98,6 +103,7 @@ export default function PostVideogame(){
                 <div>
                     <label>Rating</label>
                     <input
+                    className={styles.input}
                     type="number"
                     min="0"
                     max="5"
@@ -111,6 +117,7 @@ export default function PostVideogame(){
                 <div>
                     <label>Plataformas</label>
                     <input
+                    className={styles.input}
                     type="text"
                     value={input.platforms}
                     name="platforms"
@@ -121,6 +128,7 @@ export default function PostVideogame(){
                 <div>
                     <div>Géneros</div>
                     <select
+                        className={styles.input}
                         name="genres"
                         multiple="multiple"
                         onChange={(e) => handleSelect(e)}
@@ -134,7 +142,7 @@ export default function PostVideogame(){
                     Mantén presionado CTRL para elegir más de un género.
                     </div>
                 </div>
-                <button type='submit'>Crear Videojuego</button>
+                <button className={styles.submit} type='submit'>Crear Videojuego</button>
             </form>
         </div>
     )

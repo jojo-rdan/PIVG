@@ -1,19 +1,29 @@
-.btn {
-    background-color: rgb(179, 179, 105);
-    border: none;
-    color: #0C0D06;
-    padding: 15px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.btn{
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
     cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin: 0px 10px 10px 10px;
+    outline: 0;
+    text-align: center;
+    width: 40%;
 }
 .btn:hover{
-    color: antiquewhite;
+    background-color: #06b;
 }
 .h1{
+    font-size: 80px;
     margin-top: 200px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    text-shadow: 4px 3px 8px rgba(62, 112, 206, 0.66);
+}
+.p{
+    font-size: 60px;
+    margin-top: 5px;
+    margin-bottom: 50px;
     text-shadow: 4px 3px 8px rgba(62, 112, 206, 0.66);
 }

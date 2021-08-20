@@ -1,0 +1,40 @@
+.form {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 750px;
+    padding: 20px;
+    width: 500px;
+    margin-top: 70px;
+}  
+.input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 10px 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+.submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 20px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .submit:active {
+    background-color: #06b;
+  }
+  

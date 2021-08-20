@@ -67,30 +67,35 @@ export default function HomePage(){
 
     return (
         <div>
-            <Link to='/videogame'>Crear videojuego</Link>
-            <h1>LvlUp!</h1>
-            <button onClick={e => {handleClick(e)}}>
+            <h1 className={styles.lvlUp}>LvlUp!</h1>
+            <Link to='/videogame'>
+            <button className={styles.btn}>Crear videojuego</button>
+            </Link>
+            <br />
+            <button className={styles.btn} onClick={e => {handleClick(e)}}>
                 Volver a cargar todos los videojuegos
             </button>
             <div>
-                <select onChange={e => handleSort(e)}>
-                    <option value="asc">Ascendente A - Z</option>
-                    <option value="desc">Descendente Z - A</option>
+                <p>Filtrar por...</p>
+                <select className={styles.filters} onChange={e => handleSort(e)}>
+                    <option value="asc">A - Z</option>
+                    <option value="desc">Z - A</option>
                 </select>
-                <select onChange={e => handleRating(e)}>
+                <select className={styles.filters} onChange={e => handleRating(e)}>
                     <option value="Rasc">Rating Alto</option>
                     <option value="Rdesc">Rating Bajo</option>
                 </select>
-                <select onChange={e => handleFilteredGames(e)}>
+                <select className={styles.filters} onChange={e => handleFilteredGames(e)}>
                     <option value="api">Desde la Api</option>
                     <option value="created">Desde la base de datos</option>
                 </select>
-                <select onChange={e => handleFilteredGenres(e)}>
+                <select className={styles.filters} onChange={e => handleFilteredGenres(e)}>
                     <option value="all">Géneros...</option>
                     {genres?.map((g) => (
                     <option value={g.name}>{g.name}</option>
                     ))}
                 </select>
+                <p>Buscá tu juego...</p>
                 <SearchBar/>
                 <Pagination
                 videogamesPerPage = {videogamesPerPage}
@@ -99,7 +104,7 @@ export default function HomePage(){
                 />
                 {currentVideogames?.map((e) => {
                     return (
-                        <div className={styles.videogamesGrid} >
+                        <div className={styles.videogamesGrid}>
                             <Link to={"/home/" + e.id}>
                                 <Card name={e.name} image={e.image} genres={e.genres} key={e.id}/>
                             </Link>

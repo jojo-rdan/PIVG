@@ -14,7 +14,8 @@ export default function LandingPage(){
     
     return (
         <div>
-            <h1 className={styles.h1}> Bienvenido a LvlUp!</h1>
+            <h1 className={styles.h1}>Bienvenido a LvlUp!</h1>
+            <p className={styles.p}>Juegos de otro nivel!</p>
             <Link to='/home'>
                 <button className={styles.btn}>Entra ya!</button>
             </Link>

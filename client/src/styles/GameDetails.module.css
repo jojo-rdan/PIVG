@@ -1,5 +1,5 @@
 .detailsContainer {
-    display: flex;
+    display: inline-block;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -25,19 +25,23 @@
     font-size: 12px;
 }
 .moveBtn{
-    position: absolute;
+    position: relative;
     top: 110%;
 }
 .btn{
-    background-color: #678f6c;
-    border: none;
-    color: #0C0D06;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
     cursor: pointer;
+    font-size: 15px;
+    height: 30px;
+    margin-top: 5px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
 }
 .btn:hover{
-    color: antiquewhite;
+    background-color: #06b;
 }
