@@ -78,3 +78,11 @@ export function filterByGender(payload){
         })
     }
 }
+export function filterByYear(payload){
+    return async function(dispatch){
+        return dispatch({
+            type: 'FILTER_BY_YEAR',
+            payload
+        })
+    }
+}

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 import styles from '../styles/HomePage.module.css'
 //Mis accciones
-import { getVideogames, filterVideogameByCreated, orderByName, orderByRating, filterByGender, getGenres} from '../actions';
+import { getVideogames, filterVideogameByCreated, orderByName, orderByRating, filterByGender, getGenres, filterByYear} from '../actions';
 
 //Componentes
 import Card from './Card';
@@ -50,6 +50,13 @@ export default function HomePage(){
         setCurrentPage(1)
         setOrder(`Ordenado ${e.target.value}`)
     }
+    //Filtro por año
+    function handleFilteredYear(e){
+        e.preventDefault();
+        dispatch(filterByYear(e.target.value))
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
+    }
     //Filtro de orden alfábetico
     function handleSort(e){
         e.preventDefault()
@@ -88,6 +95,10 @@ export default function HomePage(){
                 <select className={styles.filters} onChange={e => handleFilteredGames(e)}>
                     <option value="api">Desde la Api</option>
                     <option value="created">Desde la base de datos</option>
+                </select>
+                <select className={styles.filters} onChange={e => handleFilteredYear(e)}>
+                    <option value="Yasc">Mas nuevos</option>
+                    <option value="Ydesc">Mas viejos</option>
                 </select>
                 <select className={styles.filters} onChange={e => handleFilteredGenres(e)}>
                     <option value="all">Géneros...</option>

@@ -38,6 +38,7 @@ const allVideogames = async () => {
             image: el.background_image,
             genres: el.genres.map(g => g.name),
             rating: el.rating,
+            released: el.released,
             createInDb: el.createInDb
         }
     })

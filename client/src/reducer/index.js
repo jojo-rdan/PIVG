@@ -91,10 +91,34 @@ function rootReducer(state= initialState, action){
                 }
                 return 0
             })
-        return {
-            ...state,
-            videogames: sortGamesRating
-        }
+            return {
+                ...state,
+                videogames: sortGames
+            }
+        case 'FILTER_BY_YEAR':
+            let sortGamesYear = action.payload === 'Ydesc' ?
+            state.videogames.sort(function (a, b){
+                if(Number(a.released.split('-')[0]) > Number(b.released.split('-')[0])){
+                    return 1;
+                }
+                if(Number(b.released.split('-')[0]) > Number(a.released.split('-')[0])){
+                    return -1;
+                }
+                return 0
+                }) :
+                state.videogames.sort(function (a, b){
+                    if(Number(a.released.split('-')[0]) > Number(b.released.split('-')[0])){
+                        return -1;
+                    }
+                    if(Number(b.released.split('-')[0]) > Number(a.released.split('-')[0])){
+                        return 1;
+                    }
+                    return 0
+                })
+            return {
+                ...state,
+                videogames: sortGamesYear
+            }
         case 'GET_VIDEOGAME_DETAIL':
             return{
                 ...state,
