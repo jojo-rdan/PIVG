@@ -1,0 +1,14 @@
+.videogamesGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 230px);
+    gap: 40px;
+    padding: 40px;
+    justify-content: center;
+    margin: 0px;
+}
+
+@media (max-width: 560px){
+    .videogamesGrid{
+        grid-template-columns: 100%;
+    }
+}

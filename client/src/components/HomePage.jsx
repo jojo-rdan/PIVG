@@ -2,9 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
-
+import styles from '../styles/HomePage.module.css'
 //Mis accciones
-import { getVideogames, filterVideogameByCreated, orderByName, orderByRating} from '../actions';
+import { getVideogames, filterVideogameByCreated, orderByName, orderByRating, filterByGender, getGenres} from '../actions';
 
 //Componentes
 import Card from './Card';
@@ -13,9 +13,12 @@ import SearchBar from './SearchBar';
 
 export default function HomePage(){
     const dispatch = useDispatch()
-
+    //Llamo a mis estados para los filtros
     const allVideogames = useSelector((state) => state.videogames)
+    const genres = useSelector((state) => state.genres)
     const [order, setOrder] = useState('')
+    
+    //Paginado
     const [currentPage, setCurrentPage] = useState(1);
     const [videogamesPerPage, setVideogamesPerPage] = useState(9);
     const lastGameIndex = currentPage * videogamesPerPage;
@@ -24,26 +27,37 @@ export default function HomePage(){
     const paginado = (pageNumber) =>{
         setCurrentPage(pageNumber)
     }
-
-    useEffect (() => {
-        dispatch(getVideogames())
-    },[dispatch])
-
+    //En caso de que no me los cargue en la landing, acá de nuevo.
+    useEffect(()=>{
+        if(!allVideogames.length){
+            dispatch(getVideogames())
+            dispatch(getGenres())
+        }
+    }, [])
+    //Para cargar todos los juegos en la página
     function handleClick(e){
         e.preventDefault();
         dispatch(getVideogames())
     }
-
+    //Filtro de creados y de la api
     function handleFilteredGames(e){
         dispatch(filterVideogameByCreated(e.target.value))
     }
-
+    //Filtro por géneros
+    function handleFilteredGenres(e){
+        e.preventDefault();
+        dispatch(filterByGender(e.target.value))
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
+    }
+    //Filtro de orden alfábetico
     function handleSort(e){
         e.preventDefault()
         dispatch(orderByName(e.target.value))
         setCurrentPage(1)
         setOrder(`Ordenado ${e.target.value}`)
     }
+    //Muy parecido al del alfabético, pero tomando el rating de value
     function handleRating(e){
         e.preventDefault()
         dispatch(orderByRating(e.target.value))
@@ -68,9 +82,14 @@ export default function HomePage(){
                     <option value="Rdesc">Rating Bajo</option>
                 </select>
                 <select onChange={e => handleFilteredGames(e)}>
-                    <option value="all">Todos</option>
-                    <option value="api">Existentes</option>
-                    <option value="created">Agregados por nosotros</option>
+                    <option value="api">Desde la Api</option>
+                    <option value="created">Desde la base de datos</option>
+                </select>
+                <select onChange={e => handleFilteredGenres(e)}>
+                    <option value="all">Géneros...</option>
+                    {genres?.map((g) => (
+                    <option value={g.name}>{g.name}</option>
+                    ))}
                 </select>
                 <SearchBar/>
                 <Pagination
@@ -80,9 +99,9 @@ export default function HomePage(){
                 />
                 {currentVideogames?.map((e) => {
                     return (
-                        <div>
-                            <Link to={"/home/"}>
-                                <Card name={e.name} image={e.image} genres={e.genres}/>
+                        <div className={styles.videogamesGrid} >
+                            <Link to={"/home/" + e.id}>
+                                <Card name={e.name} image={e.image} genres={e.genres} key={e.id}/>
                             </Link>
                         </div>
                     )

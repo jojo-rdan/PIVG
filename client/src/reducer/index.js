@@ -2,7 +2,8 @@
 const initialState = {
     videogames: [],
     allVideogames: [],
-    genres: []
+    genres: [],
+    details: {}
 }
 
 function rootReducer(state= initialState, action){
@@ -19,11 +20,15 @@ function rootReducer(state= initialState, action){
                 videogames: action.payload
             }
         case 'FILTER_BY_CREATED':
-            const filteredVG = action.payload === "created" ? state.allVideogames.filter(el => el.createdInDb) : state.allVideogames.filter(el => !el.createdInDb)
-                console.log(filteredVG)
+            let filteredApi = [...state.allVideogames].filter(
+                (r) => typeof r.id === "number"
+              )
+            let filteredDb = [...state.allVideogames].filter(
+                (r) => typeof r.id !== "number"
+              )
             return{
                 ...state,
-                videogames: action.payload === "all" ? state.allVideogames : filteredVG
+                videogames: action.payload === "created" ? filteredDb : filteredApi
             }
         case 'POST_VIDEOGAME':
             return{
@@ -33,6 +38,14 @@ function rootReducer(state= initialState, action){
             return {
                 ...state,
                 genres: action.payload
+            }
+        case 'FILTER_BY_GENRES':
+            let filterGenres = [...state.genres]
+            return {
+                ...state,
+                videogames: filterGenres === 'all' ? state.allVideogames : state.allVideogames.filter((r) =>
+                r.genres.includes(action.payload)
+              )
             }
         case 'FILTER_BY_NAME':
             let sortGames = action.payload === 'asc' ?
@@ -82,6 +95,11 @@ function rootReducer(state= initialState, action){
             ...state,
             videogames: sortGamesRating
         }
+        case 'GET_VIDEOGAME_DETAIL':
+            return{
+                ...state,
+                details: action.payload
+            }
         default: {
             return state;
         }

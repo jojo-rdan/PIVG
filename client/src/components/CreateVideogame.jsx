@@ -98,7 +98,10 @@ export default function PostVideogame(){
                 <div>
                     <label>Rating</label>
                     <input
-                    type="text"
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="0.1"
                     value={input.rating}
                     name="rating"
                     onChange={handleChange}

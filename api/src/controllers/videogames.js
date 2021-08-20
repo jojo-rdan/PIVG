@@ -33,10 +33,12 @@ const allVideogames = async () => {
     const infoTotal = apiGames.concat(dbGames);
     const filteredInfoTotal = infoTotal.map(el => {
         return {
+            id: el.id,
             name: el.name,
             image: el.background_image,
             genres: el.genres.map(g => g.name),
-            rating: el.rating
+            rating: el.rating,
+            createInDb: el.createInDb
         }
     })
     return filteredInfoTotal;

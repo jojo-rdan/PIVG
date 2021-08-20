@@ -57,3 +57,24 @@ export function filterVideogameByCreated(payload){
     }
 
 }
+export function gameDetail(id){
+    return async function(dispatch){
+        try{
+            let json = await axios.get(`http://localhost:3001/videogame/${id}`);
+            return dispatch({
+                type: 'GET_VIDEOGAME_DETAIL',
+                payload: json.data
+            })
+        } catch(error) {
+            console.log(error)
+        }
+    }
+}
+export function filterByGender(payload){
+    return async function(dispatch){
+        return dispatch({
+            type: 'FILTER_BY_GENRES',
+            payload
+        })
+    }
+}

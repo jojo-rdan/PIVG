@@ -1,0 +1,19 @@
+.btn {
+    background-color: rgb(179, 179, 105);
+    border: none;
+    color: #0C0D06;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn:hover{
+    color: antiquewhite;
+}
+.h1{
+    margin-top: 200px;
+    margin-bottom: 100px;
+    text-shadow: 4px 3px 8px rgba(62, 112, 206, 0.66);
+}

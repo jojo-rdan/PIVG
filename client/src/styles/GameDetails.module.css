@@ -1,0 +1,43 @@
+.detailsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.col {
+    max-width: 400px;
+    margin: 15px;
+    height: auto;
+    height: 80%;
+}
+
+.vgImage {
+    border-radius: 15px;
+}
+
+.vgDetails {
+    font-size: 1.5rem;
+}
+.firstItem {
+    margin-top: 0;
+}
+.text{
+    font-size: 12px;
+}
+.moveBtn{
+    position: absolute;
+    top: 110%;
+}
+.btn{
+    background-color: #678f6c;
+    border: none;
+    color: #0C0D06;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+.btn:hover{
+    color: antiquewhite;
+}
