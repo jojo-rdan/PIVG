@@ -93,7 +93,7 @@ function rootReducer(state= initialState, action){
             })
             return {
                 ...state,
-                videogames: sortGames
+                videogames: sortGamesRating
             }
         case 'FILTER_BY_YEAR':
             let sortGamesYear = action.payload === 'Ydesc' ?
