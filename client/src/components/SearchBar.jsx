@@ -2,6 +2,7 @@ import React from 'react';
 import { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { getVideogameName } from '../actions';
+import { BsSearch } from 'react-icons/bs'
 
 import style from '../styles/SearchBar.module.css'
 
@@ -26,7 +27,7 @@ export default function SearchBar (){
             placeholder="Buscar"
             onChange={(e) => handleInputChange(e)}
             />
-            <button className={style.search} onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <button className={style.search} onClick={(e) => handleSubmit(e)}><BsSearch/></button>
         </div>
     )
 

@@ -51,6 +51,7 @@ export default function PostVideogame(){
     }, []);
 
     return(
+        <div className={styles.divCenter}>
         <div className={styles.form}>
             <Link to='/home'>
                 <button className={styles.submit}>Volver</button>
@@ -144,6 +145,7 @@ export default function PostVideogame(){
                 </div>
                 <button className={styles.submit} type='submit'>Crear Videojuego</button>
             </form>
+        </div>
         </div>
     )
 }

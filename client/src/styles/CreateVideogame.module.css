@@ -1,3 +1,7 @@
+.divCenter{
+  margin-left: 420px;
+}
+
 .form {
     background-color: #15172b;
     border-radius: 20px;
@@ -6,6 +10,7 @@
     padding: 20px;
     width: 500px;
     margin-top: 70px;
+    margin-bottom: 70px;
 }  
 .input {
     background-color: #303245;

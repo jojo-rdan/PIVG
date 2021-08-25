@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 import styles from '../styles/HomePage.module.css'
+import { BsFilterLeft } from 'react-icons/bs'
 //Mis accciones
 import { getVideogames, filterVideogameByCreated, orderByName, orderByRating, filterByGender, getGenres, filterByYear} from '../actions';
 
@@ -83,7 +84,7 @@ export default function HomePage(){
                 Volver a cargar todos los videojuegos
             </button>
             <div>
-                <p>Filtrar por...</p>
+                <p><BsFilterLeft/>Filtrar por...</p>
                 <select className={styles.filters} onChange={e => handleSort(e)}>
                     <option value="asc">A - Z</option>
                     <option value="desc">Z - A</option>
