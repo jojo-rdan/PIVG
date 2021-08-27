@@ -1,4 +1,4 @@
-# Individual Project - Videogames
+# Project - Videogames SPA (Single Page Application)
 
 <p align="center">
   <img height="200" src="./videogame.png" />
