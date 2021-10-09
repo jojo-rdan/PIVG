@@ -25,6 +25,7 @@
       - The user is able to filter the search by the name of the game and also in alphabetical order, by rating, by year and by genre.
  
  ## Screenshots:
+ 
    <img height="250em" src="https://user-images.githubusercontent.com/69560827/131178009-07feac14-71fc-4182-b08e-c78558544c90.PNG"/>
    <img height="250em" src="https://user-images.githubusercontent.com/69560827/131178056-0800c7e8-07d6-4f05-b290-22fe26d47dfe.PNG"/>
    <img height="250em" src="https://user-images.githubusercontent.com/69560827/131178059-7e017634-27ee-4f9d-bed2-b4ed40bbb64d.PNG"/>
@@ -39,6 +40,7 @@
    - Make npm start over the selected folders.
 
  ## If something is not right after these steps or you want to contact me:
+ 
    - email: jordan.olaves91@gmail.com
    - LinkedIn: https://www.linkedin.com/in/jojordan1991/
 
