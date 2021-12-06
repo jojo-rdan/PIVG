@@ -6,7 +6,7 @@ export function getVideogames(){
         return dispatch({
             type: 'GET_VIDEOGAMES',
             payload: json.data
-        }) 
+        })
     }
 }
 export function getGenres(){
